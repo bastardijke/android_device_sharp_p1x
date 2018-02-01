@@ -1,6 +1,17 @@
+DEVICE_TREE := device/lge/h850
+
+# Bootloader
+TARGET_NO_BOOTLOADER := true
+TARGET_BOOTLOADER_BOARD_NAME := msm8996
+
 # Platform
 TARGET_BOARD_PLATFORM := msm8996
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno530
+
+# Flags
+#TARGET_GLOBAL_CFLAGS +=
+#TARGET_GLOBAL_CPPFLAGS +=
+#COMMON_GLOBAL_CFLAGS +=
 
 # Architecture
 TARGET_ARCH := arm64
@@ -16,27 +27,20 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53
 
-TARGET_BOARD_SUFFIX := _64
-TARGET_USES_64_BIT_BINDER := true
-
-# Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := MSM8996
-TARGET_NO_BOOTLOADER := false
-TARGET_NO_KERNEL := false
-
 # Kernel
-#TARGET_KERNEL_ARCH := arm64
-#TARGET_KERNEL_HEADER_ARCH := arm64
-#TARGET_KERNEL_CONFIG := twrp_defconfig
-#TARGET_KERNEL_DEVICE_DEFCONFIG := device_zte_ailsa_ii
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_CONFIG := twrp_defconfig
+TARGET_KERNEL_DEVICE_DEFCONFIG := device_SHARP_P1X
 
-TARGET_PREBUILT_KERNEL := device/SHARP/P1X/kernel
+TARGET_PREBUILT_KERNEL := device/SHARP/P1X/Image.gz-dtb
+
+# Boot image
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=16M@0-0xffffffff
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DT := false
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-
 
 # Partitions
 TARGET_USERIMAGES_USE_EXT4		:= true
@@ -57,11 +61,12 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/soc/6a00000.ssusb/6a00000.dwc3/gadget/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/soc/6a00000.ssusb/6a00000.dwc3/gadget/lun%d/file"
 TW_BRIGHTNESS_PATH := "/sys/devices/soc/900000.qcom\x2cmdss_mdp/900000.qcom\x2cmdss_mdp:qcom\x2cmdss_fb_primary/leds/lcd-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 153
@@ -75,9 +80,9 @@ TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 
 # Encryption
 TW_INCLUDE_CRYPTO := true
-TARGET_HW_DISK_ENCRYPTION := true
-TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-BOARD_SUPPRESS_SECURE_ERASE := true
+#TARGET_HW_DISK_ENCRYPTION := true
+#TARGET_KEYMASTER_WAIT_FOR_QSEE := true
+#BOARD_SUPPRESS_SECURE_ERASE := true
 
 
 # Time services
