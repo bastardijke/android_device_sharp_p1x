@@ -1,3 +1,2 @@
-ro.sf.lcd_density=640
 ro.hardware.keystore=msm8996
 persist.sys.usb.config=mtp,adb

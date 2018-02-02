@@ -1,5 +1,3 @@
-DEVICE_TREE := device/lge/h850
-
 # Bootloader
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := msm8996
@@ -33,7 +31,7 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CONFIG := twrp_defconfig
 TARGET_KERNEL_DEVICE_DEFCONFIG := device_SHARP_P1X
 
-TARGET_PREBUILT_KERNEL := device/SHARP/P1X/Image.gz-dtb
+TARGET_PREBUILT_KERNEL := device/SHARP/P1X/kernel
 
 # Boot image
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=16M@0-0xffffffff
@@ -80,7 +78,7 @@ TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
 
 # Encryption
 TW_INCLUDE_CRYPTO := true
-#TARGET_HW_DISK_ENCRYPTION := true
+TARGET_HW_DISK_ENCRYPTION := true
 #TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 #BOARD_SUPPRESS_SECURE_ERASE := true
 

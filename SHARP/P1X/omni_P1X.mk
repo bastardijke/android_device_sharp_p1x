@@ -2,14 +2,19 @@
 PRODUCT_RELEASE_NAME := P1X
 
 # Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+#$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
 # Inherit from our custom product configuration
-$(call inherit-product, vendor/omni/config/common.mk)
+#$(call inherit-product, vendor/omni/config/common.mk)
 
-PRODUCT_PACKAGES += \
-	charger_res_images \
-	charger
+#PRODUCT_PACKAGES += \
+#	charger_res_images \
+#	charger
+
+
+# Inherit device configuration
+$(call inherit-product, device/SHARP/P1X/P1X.mk)
+
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := P1X
